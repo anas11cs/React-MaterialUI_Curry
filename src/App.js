@@ -15,6 +15,10 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
+import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles({
   root: {
@@ -76,6 +80,22 @@ function App() {
       <Container maxWidth="md">
       <div className="App">
         <header className="App-header">
+          <AppBar color="secondary">
+            <Toolbar>
+                {}
+                <IconButton>
+                  <MenuIcon />
+                </IconButton>
+                {}
+                <Typography variant="h6">
+                  MUI Theming
+                </Typography>
+                {}
+                <Button style={{backgroundColor:"white", marginLeft:10}}>
+                  Login
+                </Button>
+            </Toolbar>
+          </AppBar>
           <Typography variant="h2">Welcome to M-UI</Typography>
           <Typography variant="subtitle1">LEARN how to use M-UI</Typography>
           {/* Below is to convert button into link by just adding href */}
