@@ -8,8 +8,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Checkbox  from '@material-ui/core/Checkbox';
 import FormControlLabel  from '@material-ui/core/FormControlLabel';
 import TextField  from '@material-ui/core/TextField';
-import {makeStyles} from '@material-ui/core/styles'
-
+import {makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/styles'
+import {orange, green} from '@material-ui/core/colors'
 
 const useStyles = makeStyles({
   root: {
@@ -19,6 +19,17 @@ const useStyles = makeStyles({
     borderRadius: 15,
     color:'white',
     padding: '5px 30px'
+  }
+})
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: orange[500],
+    },
+    secondary: {
+      main: green[400]
+    }
   }
 })
 
@@ -48,46 +59,48 @@ function CheckBoxExample(){
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* Below is to convert button into link by just adding href */}
-        {/* <Button href="#" variant="contained" color="default"> */}
-        {/* <Button onClick={()=>alert('Hello')} variant="contained" color="default"> */}
-        {/* <Button
-        style={{
-          fontSize: 24
-        }}
-        variant="contained" color="default">*/}
-        <ButtonStytled/>
-        <TextField
-        variant="filled"
-        color="secondary"
-        //type="date"
-        //type="time"
-        type="email"
-        placeholder="emailxyz@email.com"
-        //label="Time Text"
-        />
-        <CheckBoxExample/>
-        <ButtonGroup variant={"contained"} /*color="default"*/>
-            <Button
-            startIcon={<SaveIcon/>}
-            // endIcon={<SaveIcon/>}
-            // variant="contained"
-            color="primary">
-            Save
-            </Button>
-            <Button
-            startIcon={<DeleteIcon/>}
-            // endIcon={<SaveIcon/>}
-            // variant="contained"
-            color="secondary">
-            Discard 
-            </Button>
-        </ButtonGroup>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <header className="App-header">
+          {/* Below is to convert button into link by just adding href */}
+          {/* <Button href="#" variant="contained" color="default"> */}
+          {/* <Button onClick={()=>alert('Hello')} variant="contained" color="default"> */}
+          {/* <Button
+          style={{
+            fontSize: 24
+          }}
+          variant="contained" color="default">*/}
+          <ButtonStytled/>
+          <TextField
+          variant="filled"
+          color="secondary"
+          //type="date"
+          //type="time"
+          type="email"
+          placeholder="emailxyz@email.com"
+          //label="Time Text"
+          />
+          <CheckBoxExample/>
+          <ButtonGroup variant={"contained"} /*color="default"*/>
+              <Button
+              startIcon={<SaveIcon/>}
+              // endIcon={<SaveIcon/>}
+              // variant="contained"
+              color="primary">
+              Save
+              </Button>
+              <Button
+              startIcon={<DeleteIcon/>}
+              // endIcon={<SaveIcon/>}
+              // variant="contained"
+              color="secondary">
+              Discard 
+              </Button>
+          </ButtonGroup>
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
