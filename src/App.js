@@ -12,6 +12,9 @@ import {makeStyles, ThemeProvider, createMuiTheme} from '@material-ui/core/style
 import {orange, green} from '@material-ui/core/colors'
 import 'fontsource-roboto';
 import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles({
   root: {
@@ -70,6 +73,7 @@ function CheckBoxExample(){
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <Container maxWidth="md">
       <div className="App">
         <header className="App-header">
           <Typography variant="h2">Welcome to M-UI</Typography>
@@ -83,6 +87,22 @@ function App() {
           }}
           variant="contained" color="default">*/}
           <ButtonStytled/>
+          <Grid container  style={{marginBottom:10, justifyContent:"center"}} spacing={2}>
+            {/*xs=12 means to contain the complete width of the screen*/}
+            <Grid item xs={3} sm={6}>
+              <Paper style={{height:75, width:'100%',}} />
+            </Grid>
+            <Grid item xs={3} sm={6}>
+              <Paper style={{height:75, width:'100%',}} />
+            </Grid>
+            <Grid item xs={3} sm={6}>
+              <Paper style={{height:75, width:'100%',}} />
+            </Grid>
+            {/* BELOW UTILIZES full space in a row and adjusts accordingly on downgrade/upgrade of screen
+              <Grid item xs >
+              <Paper style={{height:75, width:'100%',}} />
+            </Grid> */}
+          </Grid>
           <TextField
           variant="filled"
           color="secondary"
@@ -112,6 +132,7 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
       </div>
+      </Container>
     </ThemeProvider>
   );
 }
